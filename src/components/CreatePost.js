@@ -3,9 +3,10 @@ import { Component } from "react";
 class CreatePost extends Component{
     render()
     {
+      const {user}=this.props;
         return  <div className="post-topbar">
         <div className="user-picy">
-          <img src="./images/saroj-pic.jpeg" alt="" />
+          <img src={"./images/"+user.username+".jpeg"} alt="" />
         </div>
         <div className="post-st">
           <ul>

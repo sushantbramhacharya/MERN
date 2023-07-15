@@ -6,19 +6,33 @@ import Post from "./PostsSection";
 import RightSideBar from "./RightSideBar";
 import PostsSection from "./PostsSection";
 
+const userData= {
+  email:"test@test.com",
+  username:"test",
+  fullname:"Test User",
+  title:"Software Developer",
+  skills:["JS","PHP","JAVA"],
+  address:"Kathmandu,Nepal",
+  job_type:"Full Time",
+  id:1,
+  is_active:true,
+  followers:["username123","user234","User543"],
+  followings:["username123","user234","user543","user555"]
+};
+
 class Home extends Component {
     render() {
         return <div className="wrapper">
-        <Header/>
+        <Header user={userData}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <UserData/>
+                  <UserData user={userData}/>
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                     <CreatePost/>
+                     <CreatePost user={userData}/>
                       <PostsSection/>
                     </div>
                   </div>

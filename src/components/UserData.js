@@ -1,30 +1,35 @@
 import { Component } from "react";
 
+
 class UserData extends Component{
-    render()
-    {
+  render()
+  {
+    // const user=this.props.user;
+    // const {user,profile}=this.props;
+    // Make variables for the folowing keys
+      const {user}=this.props;
         return  <div className="col-lg-3 col-md-4 pd-left-none no-pd">
         <div className="main-left-sidebar no-margin">
           <div className="user-data full-width">
             <div className="user-profile">
               <div className="username-dt">
                 <div className="usr-pic">
-                  <img src="./images/saroj-pic.jpeg" alt="" />
+                  <img src={"./images/"+user.username+".jpeg"} alt="" />
                 </div>
               </div>
               <div className="user-specs">
-                <h3>Sushant Shakya</h3>
+                <h3>{user.fullname}</h3>
                 <span>Research Head</span>
               </div>
             </div>
             <ul className="user-fw-status">
               <li>
                 <h4>Following</h4>
-                <span>34</span>
+                <span>{user.followings.length}</span>
               </li>
               <li>
-                <h4>Followers</h4>
-                <span>155</span>
+                <h4>Followers</h4> 
+                <span>{user.followers.length}</span>
               </li>
               <li>
                 <a href="./my-profile.html" title="">View Profile</a>
