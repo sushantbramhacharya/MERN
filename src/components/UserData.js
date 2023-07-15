@@ -13,7 +13,7 @@ class UserData extends Component{
                 </div>
               </div>
               <div className="user-specs">
-                <h3>Saroj Shakya</h3>
+                <h3>Sushant Shakya</h3>
                 <span>Research Head</span>
               </div>
             </div>
@@ -48,7 +48,7 @@ class UserData extends Component{
               <div className="suggestion-usd">
                 <img src="./images/s2.png" alt="" />
                 <div className="sgt-text">
-                  <h4>Saroj Shakya</h4>
+                  <h4>Sushant Shakya</h4>
                   <span>PHP Developer</span>
                 </div>
                 <span><i className="la la-plus"></i></span>
@@ -80,7 +80,7 @@ class UserData extends Component{
               <div className="suggestion-usd">
                 <img src="./images/s6.png" alt="" />
                 <div className="sgt-text">
-                  <h4>Saroj Shakya</h4>
+                  <h4>Sushant Shakya</h4>
                   <span>PHP Developer</span>
                 </div>
                 <span><i className="la la-plus"></i></span>

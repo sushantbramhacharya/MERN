@@ -9,7 +9,7 @@ class PostsSection extends Component{
           <div className="usy-dt">
             <img src="./images/saroj-pic.jpeg" alt="" />
             <div className="usy-name">
-              <h3>Saroj Shakya</h3>
+              <h3>Sushant Shakya</h3>
               <span>3 min ago</span>
             </div>
           </div>
@@ -139,7 +139,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -182,7 +182,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -225,7 +225,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -268,7 +268,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -311,7 +311,7 @@ class PostsSection extends Component{
                                   tabIndex="0"
                                 >
                                   <img src="./images/user2.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -354,7 +354,7 @@ class PostsSection extends Component{
                                   tabIndex="0"
                                 >
                                   <img src="./images/user3.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -397,7 +397,7 @@ class PostsSection extends Component{
                                   tabIndex="0"
                                 >
                                   <img src="./images/user1.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -440,7 +440,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -483,7 +483,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -526,7 +526,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -569,7 +569,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -612,7 +612,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -655,7 +655,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user1.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -698,7 +698,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user2.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -741,7 +741,7 @@ class PostsSection extends Component{
                                   tabIndex="-1"
                                 >
                                   <img src="./images/user3.png" alt="" />
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>Graphic Designer</span>
                                   <ul>
                                     <li>
@@ -790,7 +790,7 @@ class PostsSection extends Component{
                             <div className="usy-dt">
                               <img src="./images/saroj-pic.jpeg" alt="" />
                               <div className="usy-name">
-                                <h3>Saroj Shakya</h3>
+                                <h3>Sushant Shakya</h3>
                                 <span>3 min ago</span>
                               </div>
                             </div>
@@ -900,7 +900,7 @@ class PostsSection extends Component{
                                   alt=""
                                 />
                                 <div className="usy-name">
-                                  <h3>Saroj Shakya</h3>
+                                  <h3>Sushant Shakya</h3>
                                   <span>3 min ago</span>
                                 </div>
                               </div>
@@ -1019,7 +1019,7 @@ class PostsSection extends Component{
                                       <img src="./images/bg-img1.png" alt="" />
                                     </div>
                                     <div className="comment">
-                                      <h3>Saroj Shakya</h3>
+                                      <h3>Sushant Shakya</h3>
                                       <span
                                         ><img src="./images/clock.png" alt="" /> 3
                                         min ago</span
@@ -1043,7 +1043,7 @@ class PostsSection extends Component{
                                           />
                                         </div>
                                         <div className="comment">
-                                          <h3>Saroj Shakya</h3>
+                                          <h3>Sushant Shakya</h3>
                                           <span
                                             ><img
                                               src="./images/clock.png"
@@ -1067,7 +1067,7 @@ class PostsSection extends Component{
                                       <img src="./images/bg-img3.png" alt="" />
                                     </div>
                                     <div className="comment">
-                                      <h3>Saroj Shakya</h3>
+                                      <h3>Sushant Shakya</h3>
                                       <span
                                         ><img src="./images/clock.png" alt="" /> 3
                                         min ago</span
