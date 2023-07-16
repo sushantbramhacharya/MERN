@@ -6,18 +6,19 @@ import Post from "./PostsSection";
 import RightSideBar from "./RightSideBar";
 import PostsSection from "./PostsSection";
 
-const userData= {
-  email:"test@test.com",
-  username:"test",
-  fullname:"Test User",
-  title:"Software Developer",
-  skills:["JS","PHP","JAVA"],
-  address:"Kathmandu,Nepal",
-  job_type:"Full Time",
-  id:1,
-  is_active:true,
-  followers:["username123","user234","User543"],
-  followings:["username123","user234","user543","user555"]
+const userData = {
+    email:"test@test.com",
+    username:"test",
+    fullname:"Test User",
+    title:"Software Developer",
+    skills:["JS","PHP","JAVA"],
+    address:"Kathmandu,Nepal",
+    job_type:"Full Time",
+    id:1,
+    is_active:true,
+    followers:["username123","user234","User543"],
+    followings:["username123","user234","user543","user555"]
+  
 };
 
 class Home extends Component {
