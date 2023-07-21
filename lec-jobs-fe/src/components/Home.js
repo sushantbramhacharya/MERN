@@ -6,34 +6,54 @@ import Post from "./PostsSection";
 import RightSideBar from "./RightSideBar";
 import PostsSection from "./PostsSection";
 
-const userData = {
-    email:"test@test.com",
-    username:"test",
-    fullname:"Test User",
-    title:"Software Developer",
-    skills:["JS","PHP","JAVA"],
-    address:"Kathmandu,Nepal",
-    job_type:"Full Time",
-    id:1,
-    is_active:true,
-    followers:["username123","user234","User543"],
-    followings:["username123","user234","user543","user555"]
-  
-};
+
 
 class Home extends Component {
+  constructor()
+  {
+    super();
+    this.state={
+      userData:
+      {
+          email:"",
+          username:"",
+          fullname:"",
+          title:"",
+          skills:[],
+          address:"",
+          job_type:"",
+          id:1,
+          is_active:true,
+          followers:[],
+          followings:[]
+        }
+    }
+  }
+
+  componentDidMount()
+  {
+    fetch("http://localhost:5000/api/v1/user")
+    .then(resp=>resp.json())
+    .then((data)=>{
+      this.setState({userData:data});
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+
+  }
     render() {
         return <div className="wrapper">
-        <Header user={userData}/>
+        <Header user={this.state.userData}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <UserData user={userData}/>
+                  <UserData user={this.state.userData}/>
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                     <CreatePost user={userData}/>
+                     <CreatePost user={this.state.userData}/>
                       <PostsSection/>
                     </div>
                   </div>
