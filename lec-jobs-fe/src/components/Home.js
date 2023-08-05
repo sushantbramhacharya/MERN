@@ -2,7 +2,6 @@ import { Component } from "react";
 import Header from "./Header";
 import UserData from "./UserData";
 import CreatePost from "./CreatePost";
-import Post from "./PostsSection";
 import RightSideBar from "./RightSideBar";
 import PostsSection from "./PostsSection";
 
@@ -13,20 +12,8 @@ class Home extends Component {
   {
     super();
     this.state={
-      userData:
-      {
-          email:"",
-          username:"",
-          fullname:"",
-          title:"",
-          skills:[],
-          address:"",
-          job_type:"",
-          id:1,
-          is_active:true,
-          followers:[],
-          followings:[]
-        }
+      user:
+      {}
     }
   }
 
@@ -35,25 +22,46 @@ class Home extends Component {
     fetch("http://localhost:5000/api/v1/user")
     .then(resp=>resp.json())
     .then((data)=>{
-      this.setState({userData:data});
+      this.setState({user:data});
     })
     .catch((err)=>{
       console.log(err);
     })
 
+
+    fetch("http://localhost:5000/api/v1/user",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      }
+      })
+        .then(resp=>resp.json())
+        .then((data)=>{
+          console.log(data);
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+
   }
     render() {
+      const {user}=this.state;
+      // const user = {...this.state.user};
+      if(Object.keys(this.state.user).length===0)
+      {
+        return <div></div>;
+      }
         return <div className="wrapper">
-        <Header user={this.state.userData}/>
+        <Header user={user}/>
         <main>
           <div className="main-section">
             <div className="container">
               <div className="main-section-data">
                 <div className="row">
-                  <UserData user={this.state.userData}/>
+                  <UserData user={user}/>
                   <div className="col-lg-6 col-md-8 no-pd">
                     <div className="main-ws-sec">
-                     <CreatePost user={this.state.userData}/>
+                     <CreatePost user={user}/>
                       <PostsSection/>
                     </div>
                   </div>
