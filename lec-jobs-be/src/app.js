@@ -46,46 +46,11 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("user",userSchema);
 
-User.createCollection().then((col)=>{
-    console.log("Collection",col,"created");
-}).catch((err)=>console.log(err));
+// User.createCollection().then((col)=>{
+//     console.log("Collection",col,"created");
+// }).catch((err)=>console.log(err));
 
-// User.create(
-//     [
-//         {
-//           title: "PHP Developer Required",
-//           description: "For a client project PHP Developer is required",
-//           location: "Kathmandu",
-//           job_type: "Full Time",
-//           pay_rate_per_hr_dollar: 10.0,
-//           skills: [
-//             "PHP",
-//             "JS",
-//             "HTML"
-//           ],
-//           liked_by: [
-//             "test111",
-//             "test1",
-//             "test123"
-//           ],
-//           viewed_by: [
-//             "test111",
-//             "test1",
-//             "test123"
-//           ],
-//           id: 2,
-//           user_id: 1,
-//           post_by_username: "test123",
-//           post_by_fullname: "Test User",
-//           post_date: "2023-06-10T09:24:07.659034",
-//           comments: [
-           
-//           ]
-//         }
-//     ]
-// ).then(()=>{
-//     console.log("Created");
-// })
+
 
 const app = express();
 
@@ -107,6 +72,33 @@ app.get('/api/v1/user',async(req,res)=>{
     const user = await User.find({id:1});
     res.status(200).send(user);
 })
+
+app.post("/api/v1/user", async (req, resp) => {
+  const lastUser = await User.findOne({}, null, { sort: { id: -1 } });
+
+  let id = 1;
+  if (lastUser) {
+    id = lastUser.id + 1;
+  }
+  const newUser = {
+    email: "test@test.com",
+    username: "saroj",
+    fullname: "Test User",
+    title: "Software Developer",
+    skills: ["JS", "PHP", "JAVA"],
+    address: "Kathmnadu, Nepal",
+    job_type: "Full Time",
+    id: id,
+    is_active: true,
+    followers: [],
+    followings: [],
+  };
+  User.create(newUser).then((createdUser) => {
+    console.log("User created");
+    resp.status(200).send(createdUser);
+  });
+});
+
 
 app.listen(PORT,()=>{
 console.log("App is Running on http://localhost:"+PORT);
