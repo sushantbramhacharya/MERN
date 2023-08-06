@@ -8,6 +8,9 @@ class Login extends Component {
       const username = formElement.elements["username"].value;
       const password = formElement.elements["password"].value;
 
+
+      //clear error message
+      formElement.querySelector("#err").innerHTML="";
       fetch("http://localhost:5000/api/v1/user",
       {
         method:"POST",
@@ -20,6 +23,7 @@ class Login extends Component {
       }
       ).then((resp)=>resp.json())
       .then((data)=>{
+        
         console.log("Created New User",data);
       }).catch((err)=>
       {
@@ -41,6 +45,12 @@ class Login extends Component {
     const password = formElement.elements["signin-password"].value;
     const rpassword = formElement.elements["repeat-password"].value;
 
+    const term=formElement.elements["c2"].checked;
+    if(!term)
+    {
+      alert("Agree Terms and Conditions");
+      return;
+    }
     if(password!==rpassword)
     {
       alert("Enter Same Password");
@@ -60,6 +70,8 @@ class Login extends Component {
       }
       ).then((resp)=>resp.json())
       .then((data)=>{
+        //Display Error
+        document.querySelector("#err").innerHTML=data.error;
         console.log("Created New User",data);
       }).catch((err)=>
       {
@@ -168,7 +180,7 @@ class Login extends Component {
                         <div className="col-lg-6">
                           <div className="sn-field">
                             <input
-                              type="text"
+                              type="email"
                               name="email"
                               id="email"
                               placeholder="Email"
