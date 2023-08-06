@@ -2,6 +2,7 @@ const express = require("express");
 const fs=require("fs");
 const cors = require("cors");
 const mongoose=require("mongoose");
+const bodyParser=require("body-parser");
 
 //connect sting going for lec database
 const mongoDbURI="mongodb://localhost:27017/lec";
@@ -32,11 +33,12 @@ const userSchema = new mongoose.Schema({
     //     }
     // ]
     email:String,
-    username:String,
+    username:{type:String,unique:true},
     fullname:String,
     title:String,
     skills:[String],
     address:String,
+    password:String,
     job_type:String,
     id:Number,
     is_active:Boolean,
@@ -53,6 +55,7 @@ const User = mongoose.model("user",userSchema);
 
 
 const app = express();
+app.use(bodyParser.json());
 
 app.use(cors());
 
@@ -75,20 +78,29 @@ app.get('/api/v1/user',async(req,res)=>{
 
 app.post("/api/v1/user", async (req, resp) => {
   const lastUser = await User.findOne({}, null, { sort: { id: -1 } });
+  
+  const { username, email, fullname, title, job_type,skills, address, password}=req.body;
 
+  const usernameUser = await User.findOne({username});
+  if(usernameUser){
+    resp.status(400).send({error:"Enter Unique Username"});
+    return;
+  };
   let id = 1;
   if (lastUser) {
     id = lastUser.id + 1;
   }
   const newUser = {
-    email: "test@test.com",
-    username: "saroj",
-    fullname: "Test User",
-    title: "Software Developer",
-    skills: ["JS", "PHP", "JAVA"],
-    address: "Kathmnadu, Nepal",
-    job_type: "Full Time",
-    id: id,
+    email ,
+    password,
+    //this email is equivalent to email:email
+    username,
+    fullname,
+    title,
+    skills,
+    address,
+    job_type,
+    id,
     is_active: true,
     followers: [],
     followings: [],
@@ -96,7 +108,8 @@ app.post("/api/v1/user", async (req, resp) => {
   User.create(newUser).then((createdUser) => {
     console.log("User created");
     resp.status(200).send(createdUser);
-  });
+  }).catch((err)=>resp.status(500).send({error:"Cannot process yout request"}));
+  //this catch block will catch if any error occurs
 });
 
 
