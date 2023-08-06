@@ -1,13 +1,62 @@
 import { Component } from "react";
 
 class Login extends Component {
-    handleSignUpClick(){
+
+    handleSignInCLick()
+    {
+      const formElement= document.getElementById("login-form");
+      const username = formElement.elements["username"].value;
+      const password = formElement.elements["password"].value;
+
       fetch("http://localhost:5000/api/v1/user",
       {
         method:"POST",
         headers:{
           "Content-Type":"application/json"
-        }
+        },
+        body:JSON.stringify({
+          username,password
+        })
+      }
+      ).then((resp)=>resp.json())
+      .then((data)=>{
+        console.log("Created New User",data);
+      }).catch((err)=>
+      {
+        console.log(err);
+      })
+    }
+    handleSignUpClick(evnt){
+    const formElement= document.getElementById("signup-form");
+    const username = formElement.elements["signin-username"].value;
+    console.log(username);
+    //Alternately querySelector("#username")
+    const fullname = formElement.elements["fullname"].value;
+    const email = formElement.elements["email"].value;
+    const skills = formElement.elements["skills"].value.split(",");
+    //split is for spliting csv into arrays
+    const title = formElement.elements["title"].value;
+    const address = formElement.elements["address"].value;
+    const job_type = formElement.elements["job_type"].value;
+    const password = formElement.elements["signin-password"].value;
+    const rpassword = formElement.elements["repeat-password"].value;
+
+    if(password!==rpassword)
+    {
+      alert("Enter Same Password");
+      return;
+    }
+    
+      fetch("http://localhost:5000/api/v1/user",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          username,fullname,email,skills,
+          title,address,job_type,password
+        })
       }
       ).then((resp)=>resp.json())
       .then((data)=>{
@@ -92,7 +141,9 @@ class Login extends Component {
                           </div>
                         </div>
                         <div className="col-lg-12">
-                          <button type="submit" value="submit">
+                          <button type="button" value="submit"
+                          onClick={this.handleSignInCLick}
+                          >
                             Sign in
                           </button>
                         </div>
@@ -219,7 +270,7 @@ class Login extends Component {
                           </div>
                         </div>
                         <div className="col-lg-6">
-                          <button type="submit" value="submit"
+                          <button type="button" value="submit"
                           onClick={this.handleSignUpClick}
                           >
                             Get Started
