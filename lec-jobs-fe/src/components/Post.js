@@ -1,6 +1,31 @@
 import { Component } from "react";
 
 class Post extends Component{
+
+  formatRelativeTime(timestamp) {
+    const currentTime = new Date();
+    const targetTime = new Date(timestamp);
+    const timeDifference = currentTime - targetTime;
+    
+    if (timeDifference < 1000) {
+      return "Just now";
+    } else if (timeDifference < 60000) {
+      const secondsAgo = Math.floor(timeDifference / 1000);
+      return `${secondsAgo}s ago`;
+    } else if (timeDifference < 3600000) {
+      const minutesAgo = Math.floor(timeDifference / 60000);
+      return `${minutesAgo}m ago`;
+    } else if (timeDifference < 86400000) {
+      const hoursAgo = Math.floor(timeDifference / 3600000);
+      return `${hoursAgo}h ago`;
+    } else {
+      const daysAgo = Math.floor(timeDifference / 86400000);
+      return `${daysAgo}d ago`;
+    }
+  }
+
+
+  
     render()
     {
         const {post}=this.props;
@@ -10,7 +35,9 @@ class Post extends Component{
             <img src={"./images/"+post.post_by_username+".png"} alt="" />
             <div className="usy-name">
               <h3>{post.post_by_fullname}</h3>
-              <span>3 min ago</span>
+              <span>
+                {this.formatRelativeTime(post.post_date)}
+                </span>
             </div>
           </div>
           <div className="ed-opts">
@@ -85,7 +112,7 @@ class Post extends Component{
               <a href="./index.html#"
                 ><i className="fas fa-heart"></i> Like</a
               >
-              <img src="./images/liked-img.png" alt="" />
+              <img src="./images/liked-img.png" alt="" style={{display:"none"}}/>
               <span>{post.liked_by.length}</span>
             </li>
             <li>

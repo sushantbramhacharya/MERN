@@ -2,16 +2,23 @@ import { Component } from "react";
 
 class Login extends Component {
 
+
+    constructor()
+    {
+      super();
+      this.handleSignInCLick=this.handleSignInCLick.bind(this);
+    }
     handleSignInCLick()
     {
       const formElement= document.getElementById("login-form");
       const username = formElement.elements["username"].value;
       const password = formElement.elements["password"].value;
-
-
-      //clear error message
-      formElement.querySelector("#err").innerHTML="";
-      fetch("http://localhost:5000/api/v1/user",
+      if(!username||!password)
+      {
+        document.querySelector("#err").innerHTML="Enter username and password";
+        return;
+      }
+      fetch("http://localhost:5000/api/v1/login",
       {
         method:"POST",
         headers:{
@@ -23,8 +30,8 @@ class Login extends Component {
       }
       ).then((resp)=>resp.json())
       .then((data)=>{
-        
-        console.log("Created New User",data);
+        if(data.error)document.querySelector("#err").innerHTML=data.error;
+        else this.props.loginUser(data.data);
       }).catch((err)=>
       {
         console.log(err);
@@ -71,8 +78,8 @@ class Login extends Component {
       ).then((resp)=>resp.json())
       .then((data)=>{
         //Display Error
-        document.querySelector("#err").innerHTML=data.error;
-        console.log("Created New User",data);
+        if(data.error)document.querySelector("#err").innerHTML=data.error;
+        else document.querySelector("#err").innerHTML="Signup Sucessful";
       }).catch((err)=>
       {
         console.log(err);
